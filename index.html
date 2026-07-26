@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sage &amp; Stafford — New 2 &amp; 3 Bedroom Homes, Carson City NV</title>
+<title>Sage &amp; Stafford — New 3 &amp; 2 Bedroom Homes, Carson City NV</title>
 <meta name="description" content="Brand-new 3 and 2 bedroom homes in Carson City, Nevada. Your own front door, your own garage, nothing shared. 900–1,567 sq ft. First move-in September 1, 2026. Furnished homes available for the 2027 legislative session.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -239,9 +239,14 @@ h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;font-size:1.75
 @media(max-width:520px){.row2{grid-template-columns:1fr}}
 .consent{display:flex;gap:.8rem;align-items:flex-start;margin:1.8rem 0;font-size:.85rem;color:rgba(243,244,238,.8);font-weight:300}
 .consent input{margin-top:.35rem;accent-color:var(--sage-pale);width:16px;height:16px;flex:none}
+.consent + .consent{margin-top:-.9rem}
+.consent a{color:var(--sage-pale);text-decoration:none;border-bottom:1px solid rgba(168,181,160,.45)}
+.consent a:hover{border-bottom-color:var(--sage-pale)}
 .contact .btn{background:var(--paper);color:var(--sage-deep);border-color:var(--paper)}
 .contact .btn:hover{background:var(--sage-pale);border-color:var(--sage-pale);color:var(--ink)}
 .formnote{font-size:.75rem;color:rgba(243,244,238,.55);margin:1.2rem 0 0;font-weight:300}
+.formnote a{color:rgba(243,244,238,.78);text-decoration:none;border-bottom:1px solid rgba(243,244,238,.3)}
+.formnote a:hover{border-bottom-color:rgba(243,244,238,.78)}
 .success{display:none;border:1px solid rgba(243,244,238,.35);padding:2.2rem}
 .success.on{display:block}
 .success h3{color:var(--paper);margin-bottom:.6rem}
@@ -255,6 +260,11 @@ form.off{display:none}
 .foot .brand .mark em{color:var(--paper)}
 .foot .brand .name{color:var(--paper)}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding-top:1.6rem;font-size:.72rem}
+.foot-legal{flex-basis:100%;display:flex;flex-wrap:wrap;align-items:baseline;gap:.45rem 1.1rem;
+  padding-top:1.3rem;margin-top:.5rem;border-top:1px solid rgba(243,244,238,.12)}
+.foot-legal a{color:var(--sage-pale);text-decoration:none;border-bottom:1px solid rgba(168,181,160,.35)}
+.foot-legal a:hover{border-bottom-color:var(--sage-pale)}
+.foot-legal .dba{opacity:.62}
 .eho{display:flex;align-items:center;gap:.6rem}
 .eho svg{width:20px;color:var(--sage-pale);flex:none}
 
@@ -1327,7 +1337,7 @@ table.avail td.when{white-space:nowrap}
           <dt>Email</dt>
           <dd><a href="mailto:leasing@sageandstafford.com">leasing@sageandstafford.com</a></dd>
           <dt>Address</dt>
-          <dd>545 Stafford Street<br>Carson City, Nevada</dd>
+          <dd>545 Stafford Way<br>Carson City, Nevada</dd>
           <dt>Owner</dt>
           <dd>Carson Luxury Housing, LLC</dd>
         </dl>
@@ -1389,11 +1399,20 @@ table.avail td.when{white-space:nowrap}
             <textarea id="f-msg" name="message" placeholder="Pets, household size, a question&hellip;"></textarea>
           </div>
           <label class="consent">
-            <input type="checkbox" name="consent" checked>
+            <input type="checkbox" name="consent">
             <span>Email me rates, dates, and first notice when a home opens. Unsubscribe any time.</span>
           </label>
+          <label class="consent">
+            <input type="checkbox" name="smsconsent">
+            <span>Text me at the number above about availability and walkthroughs. Consent isn't a condition
+            of renting. Message frequency varies; message &amp; data rates may apply. Reply STOP to opt out,
+            HELP for help. <a href="/privacy.html#sms">Text messaging terms</a>.</span>
+          </label>
           <button class="btn" type="submit">Send me the rates</button>
-          <p class="formnote">We never sell or share your information. This doesn't reserve a home or create a lease. Rates are good as of the date sent and can change until a lease is signed.</p>
+          <p class="formnote">We never sell, rent, or share your information &mdash; including your phone number
+          and text messaging consent &mdash; with third parties for marketing. This doesn't reserve a home or create
+          a lease. Rates are good as of the date sent and can change until a lease is signed.
+          <a href="/privacy.html">Privacy policy</a>.</p>
         </form>
 
         <div class="success" id="success" role="status" aria-live="polite">
@@ -1416,7 +1435,7 @@ table.avail td.when{white-space:nowrap}
         <span class="name">Sage &amp; Stafford Apartments</span>
       </a>
       <div>
-        545 Stafford Street, Carson City, Nevada<br>
+        545 Stafford Way, Carson City, Nevada<br>
         <a href="tel:+17755550000">(775) 555-0000</a> &middot;
         <a href="mailto:leasing@sageandstafford.com">leasing@sageandstafford.com</a>
       </div>
@@ -1440,6 +1459,11 @@ table.avail td.when{white-space:nowrap}
     <div class="foot-bottom">
       <div>&copy; <span id="yr">2026</span> Carson Luxury Housing, LLC. Square footages are approximate and taken from architectural plans.</div>
       <div>Availability dates are estimates tied to construction and are subject to change. Rates furnished on request.</div>
+      <div class="foot-legal">
+        <a href="/privacy.html">Privacy policy</a>
+        <a href="/privacy.html#sms">Text messaging terms</a>
+        <span class="dba">Sage &amp; Stafford is a dba of Carson Luxury Housing, LLC.</span>
+      </div>
     </div>
   </div>
 </footer>
@@ -1842,6 +1866,20 @@ form.addEventListener("submit", async (ev) => {
   /* which plan and which home were they looking at when they submitted */
   const planViewed = PLANS[planKey].name + " \u00b7 " + homeKey;
 
+  /* TEXT-MESSAGING CONSENT RECORD
+     -----------------------------
+     The TCPA record of who agreed to be texted rides along in the "Plan viewed"
+     column, because that column already exists and already accepts free text.
+     Nothing needs to be added to the Google Form for this to work.
+
+     In the Sheet that column will read, for example:
+         Aspen \u00b7 535-201 \u00b7 TEXT CONSENT: YES
+
+     To find everyone who agreed to texts, filter that column for "YES".
+     Anyone whose row says NO must not be added to a texting list.          */
+  const textConsent = form.querySelector("[name=smsconsent]").checked ? "YES" : "NO";
+  const contextStamped = planViewed + " \u00b7 TEXT CONSENT: " + textConsent;
+
   const payload = {
     name:    el("f-name").value.trim(),
     phone:   el("f-phone").value.trim(),
@@ -1850,8 +1888,8 @@ form.addEventListener("submit", async (ev) => {
     ask:     el("f-ask").value,
     movein:  el("f-move").value,
     message: el("f-msg").value.trim(),
-    consent: form.querySelector("[name=consent]").checked ? "Yes" : "No",
-    context: planViewed
+    consent:    form.querySelector("[name=consent]").checked ? "Yes" : "No",
+    context: contextStamped
   };
 
   const configured = GFORM.action.indexOf("docs.google.com") !== -1;
